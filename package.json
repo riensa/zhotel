@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/riensa/zhotel/issues"
   },
-  "homepage": "https://github.com/riensa/zhotel#readme"
+  "homepage": "https://github.com/riensa/zhotel#readme",
+  "devDependencies": {
+    "sequelize-cli": "^6.4.1"
+  }
 }
