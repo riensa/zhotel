@@ -3,12 +3,12 @@ const express = require('express');
 require('express-group-routes');
 
 // Import routes
-const cms = require('./cms');
-const api = require('./api');
+const dashboard = require('./dashboard');
+const rooms = require('./rooms');
 
 const router = express.Router();
 
-router.use('/cms', cms);
-router.use('/api', api);
+router.use('/', dashboard);
+router.use('/rooms', rooms);
 
 module.exports = router;

@@ -1,0 +1,7 @@
+extends layout
+
+block layout-content
+  div(class="text-center")
+    p(class="lead text-gray-800 mb-5") #{message}
+    a(href="/cms/" + route) &larr; Back to #{label}
+        

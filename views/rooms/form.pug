@@ -1,0 +1,33 @@
+extends ../layout
+
+block layout-content
+  div(class="card shadow mb-4")
+    div(class="card-body")
+        div(class="card-header py-3")
+            - var modify = id ? "Update" : "New"
+            - var route = id ? "edit/"+id : "new"
+            h3(class="m-0 font-weight-bold text-primary") #{modify} Room
+                    
+                                        
+        div(class="table-responsive")
+            form#formRoom(class="user" style="margin-top:2em", action='/cms/rooms/' + route, method='POST' enctype='multipart/form-data')
+                div(class="form-group")
+                    h4 Room Type
+                    input(value=(id ? data.type : "") type="text" class="form-control" id="type" name="type" required)
+                div(class="form-group")
+                    h4 Description 
+                    textarea(id="description" name="description" class="form-control") #{id ? data.description : ''}
+                div(class="form-group")
+                    if id && data.image != null
+                        img(src="/upload/" + data.image width='200' style="margin-bottom:1em")
+
+                    h4 Upload New Image 
+                    input(type='file', name='image' id="image" )
+                div(class="form-group")
+                    h4 Quantity
+                    input(value=(id ? data.quantity : "") type="number" class="form-control" id="quantity" name="quantity" required)
+                div(class="form-group")
+                    h4 Price
+                    input(value=(id ? data.price : "") type="number" class="form-control" id="price" name="price" required)
+                div(class="form-group")
+                    input(type='submit', value='Submit' class="btn btn-primary btn-block")
